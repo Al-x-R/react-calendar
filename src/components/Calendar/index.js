@@ -2,14 +2,16 @@ import React, {Component} from 'react'
 import styles from './Calendar.module.scss'
 import * as dateFns from 'date-fns'
 import Month from './../Month'
-import Week from './../Week'
+// import Week from './../Week'
+import Day from './../Day'
 
 class Calendar extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            currentDate: new Date()
+            currentDate: new Date(),
+            selectedDate: null
         }
     }
 
@@ -51,51 +53,39 @@ class Calendar extends Component {
 
         let weekDays = dateFns.eachDayOfInterval({
             start: startWeek,
+            // start: new Date(2020, 7, 27),
             end: endWeek
+            // end: new Date(2020, 8, 2)
         })
 
         weekDays = weekDays.map((day) => {
             return dateFns.format(day, 'd')
         })
 
-        console.log(weekDays)
+        // console.log(weekDays)
 
-
+        const daysInMonth = dateFns.getDaysInMonth(currentDate)
+        const currentMonthDays = [];
+        for (let i = 1; i < daysInMonth + 1; i++) {
+            currentMonthDays.push({
+                day: i
+            });
+        }
+        console.log(currentMonthDays)
 
 
         return (
             <article>
-                <div>
-                    <Month month={fullMonthDates}/>
+                <section>
+
+                    <Day day={currentMonthDays.map((day) => {
+                        return day
+                    }) }/>
                     {/*{currentDate.toLocaleDateString()}*/}
-                    <Week week={weekDays}/>
-                </div>
-                <button onClick={() => {
-                    this.setState({
-                        currentDate: dateFns.add(currentDate, {
-                            years: 1
-                        })
-                    })
-                }}
-                >
-                    add year
-                </button>
+                    <Month currentDate={currentDate}/>
+                </section>
 
-                <button onClick={() => {
-                    this.setState({
-                        currentDate: dateFns.add(currentDate, {
-                            months: 1
-                        })
-                    })
-                }}>add month</button>
 
-                <button onClick={() => {
-                    this.setState({
-                        currentDate: dateFns.add(currentDate, {
-                            weeks: 1
-                        })
-                    })
-                }}>add week</button>
 
                 <button onClick={() => {
                     this.setState({
