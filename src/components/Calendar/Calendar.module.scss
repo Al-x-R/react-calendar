@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.calendar {
+  border: 2px solid;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 800px;
+  min-width: 400px;
+}
+
+.left {
+  background-color: #38cec4;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+
+}
+
+.right {
+  background-color: white;
+  width: 50%;
+}
