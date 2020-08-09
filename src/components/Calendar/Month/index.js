@@ -20,20 +20,25 @@ function Month(props) {
             <caption className={styles.wrap}>
                 <span className={styles.currentDate}>{format(currentDate, 'MMMM Y')}</span>
             </caption>
-            <tr className={styles.tHead}>
-                <th>M</th>
-                <th>T</th>
-                <th>W</th>
-                <th>T</th>
-                <th>F</th>
-                <th>S</th>
-                <th>S</th>
-            </tr>
+            <thead>
+                <tr className={styles.tHead}>
+                    <th>M</th>
+                    <th>T</th>
+                    <th>W</th>
+                    <th>T</th>
+                    <th>F</th>
+                    <th>S</th>
+                    <th>S</th>
+                </tr>
+            </thead>
 
-            {weeks.map((week) => {
+
+            {weeksOfMonth.map((monday) => {
                 return (
                     <tbody className={styles.days}>
-                    <Week weekStart={week}/>
+                        <Week key={format(monday, 'yyyy-I')}
+                              date={monday}
+                              currentDate={currentDate}/>
                     </tbody>
                 )
             })}
