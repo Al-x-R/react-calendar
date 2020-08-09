@@ -1,20 +1,12 @@
-import React, {Component} from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import styles from './Calendar.module.scss'
 import {format} from 'date-fns'
 import Month from './Month'
 
-class Calendar extends Component {
-    constructor(props) {
-        super(props);
+const Calendar = props => {
 
-        this.state = {
-            currentDate: new Date(),
-            selectedDate: null
-        }
-    }
-
-    render() {
-        const {currentDate} = this.state
+        const {currentDate} = props
 
         return (
             <article className={styles.calendar}>
@@ -27,7 +19,14 @@ class Calendar extends Component {
                 </section>
             </article>
         )
-    }
+}
+
+Calendar.propTypes = {
+    currentDate: PropTypes.instanceOf(Date),
+}
+
+Calendar.defaultProps = {
+    currentDate: new Date(),
 }
 
 export default Calendar
