@@ -15,7 +15,9 @@ const Calendar = props => {
                     <span className={styles.currentDayNumber}>{format(currentDate, 'd')}</span>
                 </section>
                 <section className={styles.right}>
-                    <Month currentDate={currentDate}/>
+                    <Month key={format(currentDate, 'yo-MM-d')}
+                           date={currentDate}
+                           currentDate={currentDate}/>
                 </section>
             </article>
         )
