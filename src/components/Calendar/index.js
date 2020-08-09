@@ -6,7 +6,7 @@ import Month from './Month'
 
 const Calendar = props => {
 
-        const {currentDate} = props
+        const {currentDate, date} = props
 
         return (
             <article className={styles.calendar}>
@@ -23,10 +23,12 @@ const Calendar = props => {
 
 Calendar.propTypes = {
     currentDate: PropTypes.instanceOf(Date),
+    date: PropTypes.instanceOf(Date),
 }
 
 Calendar.defaultProps = {
     currentDate: new Date(),
+    date: new Date(),
 }
 
 export default Calendar
