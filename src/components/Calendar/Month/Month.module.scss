@@ -1,15 +1,31 @@
-.weekDay {
-  color: #eb1b57;
-  font-size: 25px;
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+
+.table {
+  padding: 0 30px 100px;
 }
 
 .days {
   color: #b7b7b7;
   font-size: 20px;
+  border: none;
+}
+
+.wrap {
+  padding: 75px 0 30px;
 }
 
 .currentDate {
   color: #009991;
+  font-family: 'Nanum Gothic', sans-serif;
   font-size: 30px;
   font-weight: 700;
+  text-transform: uppercase;
 }
+
+.tHead {
+  color: #eb1b57;
+  font-size: 25px;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-weight: 800;
+}
+
