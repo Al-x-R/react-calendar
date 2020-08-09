@@ -16,7 +16,9 @@ function Week(props) {
     return (
         <tr>
             {weekDays.map(day => {
-                return <Day day={format(day, 'd')}/>
+                return <Day key={format(day, 'yyyy-MM-dd')}
+                            day={format(day, 'd')}
+                            currentDate={currentDate}/>
             })}
         </tr>
 
