@@ -16,25 +16,24 @@ function Month(props) {
 
 
     return (
-        <table>
-            <caption>
+        <table className={styles.table}>
+            <caption className={styles.wrap}>
                 <span className={styles.currentDate}>{format(currentDate, 'MMMM Y')}</span>
-                <thead>
-                <tr className={styles.weekDay}>
-                    <th>M</th>
-                    <th>T</th>
-                    <th>W</th>
-                    <th>T</th>
-                    <th>F</th>
-                    <th>S</th>
-                    <th>S</th>
-                </tr>
-                </thead>
             </caption>
+            <tr className={styles.tHead}>
+                <th>M</th>
+                <th>T</th>
+                <th>W</th>
+                <th>T</th>
+                <th>F</th>
+                <th>S</th>
+                <th>S</th>
+            </tr>
+
             {weeks.map((week) => {
                 return (
                     <tbody className={styles.days}>
-                        <Week weekStart={week} />
+                    <Week weekStart={week}/>
                     </tbody>
                 )
             })}
