@@ -1,15 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-body {
-  font-family: 'Roboto', sans-serif;
-}
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap');
 
 .calendar {
-  border: 2px solid;
   display: flex;
   flex-wrap: wrap;
-  max-width: 800px;
-  min-width: 400px;
+  padding: 100px 0;
 }
 
 .left {
@@ -17,11 +11,37 @@ body {
   color: white;
   display: flex;
   flex-direction: column;
-  width: 50%;
+  align-items: center;
+  width: 400px;
 
+  @media screen and (max-width: 820px) {
+    width: 100%;
+  }
 }
 
 .right {
   background-color: white;
-  width: 50%;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media screen and (max-width: 820px) {
+    width: 100%;
+  }
 }
+
+.currentDayName {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding: 75px 0 40px;
+}
+
+.currentDayNumber {
+  font-size: 225px;
+  font-family: 'Nanum Gothic', sans-serif;
+  padding-bottom: 100px;
+}
+
