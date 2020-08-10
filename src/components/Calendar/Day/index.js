@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import {isSameDay, isSameMonth} from "date-fns"
+import {format, isSameDay, isSameMonth} from "date-fns"
 import styles from './Day.module.scss'
 
 function Day(props) {
-    const {day, date, currentDate, className} = props
+    const {date, currentDate, className} = props
 
     const classNameStr = classNames(className, {
         [styles.currentDate]: isSameDay(date, currentDate),
@@ -13,12 +13,12 @@ function Day(props) {
     })
 
     return (
-        <td className={classNameStr}>{day}</td>
+        <td className={classNameStr}>{format(date, 'd')}</td>
     )
 }
 
 Day.propTypes = {
-    day: PropTypes.string.isRequired,
+    date: PropTypes.object.isRequired,
     className: PropTypes.string,
 }
 
