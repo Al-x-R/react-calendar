@@ -11,7 +11,6 @@ function Day(props) {
         [styles.currentDate]: isSameDay(date, currentDate),
         [styles.currentMonth]: isSameMonth(date, currentDate),
     })
-    console.log(classNameStr)
 
     return (
         <td className={classNameStr}>{day}</td>
