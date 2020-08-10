@@ -5,22 +5,21 @@ import {format} from 'date-fns'
 import Month from './Month'
 
 const Calendar = props => {
+    const {currentDate, date} = props
 
-        const {currentDate, date} = props
-
-        return (
-            <article className={styles.calendar}>
-                <section className={styles.left}>
-                    <span className={styles.currentDayName}>{format(currentDate, 'EEEE')}</span>
-                    <span className={styles.currentDayNumber}>{format(currentDate, 'd')}</span>
-                </section>
-                <section className={styles.right}>
-                    <Month key={format(currentDate, 'yo-MM-d')}
-                           date={currentDate}
-                           currentDate={currentDate}/>
-                </section>
-            </article>
-        )
+    return (
+        <article className={styles.calendar}>
+            <section className={styles.left}>
+                <span className={styles.currentDayName}>{format(date, 'EEEE')}</span>
+                <span className={styles.currentDayNumber}>{format(date, 'd')}</span>
+            </section>
+            <section className={styles.right}>
+                <Month key={format(currentDate, 'yo-MM-d')}
+                       date={date}
+                       currentDate={currentDate}/>
+            </section>
+        </article>
+    )
 }
 
 Calendar.propTypes = {
